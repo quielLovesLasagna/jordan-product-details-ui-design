@@ -4,6 +4,10 @@
 const slidesEl = document.querySelectorAll(".slide");
 const arrowPreviousBtn = document.querySelector(".arr-btn-prev");
 const arrowNextBtn = document.querySelector(".arr-btn-next");
+const shoeColorsContainerEl = document.querySelector(
+	".main__bottom-left-shoe-colors"
+);
+const shoeColorsEl = document.querySelectorAll(".shoe-color");
 
 let currentSlide = 0;
 const maxSlide = slidesEl.length;
@@ -69,6 +73,30 @@ function previousSlide() {
 	goToSlide(currentSlide);
 }
 
+function selectShoeColor(e) {
+	// -- Get shoe color element based on event target
+	const shoeColorEl = e.target.closest(".shoe-color");
+
+	// -- Get shoe color number
+	const shoeColorNum = shoeColorEl.dataset.shoe;
+
+	// -- Invoke goToSlide function based on shoe color number
+	goToSlide(shoeColorNum);
+
+	// -- If user did not select shoe color element, return
+	if (!shoeColorEl) return;
+
+	shoeColorsEl.forEach((shoeColor) => {
+		// -- If current shoeColor is not the one that was clicked, remove "shoe-color--active" class
+		if (shoeColor !== shoeColorEl) {
+			shoeColor.classList.remove("shoe-color--active");
+		}
+	});
+
+	// -- Add "shoe-color--active" class to shoe color element
+	shoeColorEl.classList.toggle("shoe-color--active");
+}
+
 function initializeSlides() {
 	// -- Initialize the slides where first slide is the currentSlide
 	goToSlide(0);
@@ -78,3 +106,4 @@ initializeSlides();
 // EVENT-LISTENER/S
 arrowPreviousBtn.addEventListener("click", previousSlide);
 arrowNextBtn.addEventListener("click", nextSlide);
+shoeColorsContainerEl.addEventListener("click", selectShoeColor);

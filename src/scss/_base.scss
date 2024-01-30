@@ -113,7 +113,7 @@ svg {
 	padding-inline: abs.toRem(50px);
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1fr 1fr;
+	grid-template-rows: 1fr 0.5fr;
 	align-items: center;
 	justify-items: center;
 
@@ -181,6 +181,7 @@ svg {
 	&__bottom-left-colors {
 		justify-self: start;
 		align-self: start;
+		text-transform: uppercase;
 	}
 
 	&__bottom-left-shoe-colors {
@@ -188,13 +189,83 @@ svg {
 		align-items: center;
 		gap: abs.toRem(30px);
 
-		img {
+		.shoe-color {
 			cursor: pointer;
 			@include abs.transitionAll;
 
-			&:hover {
+			&--active {
 				transform: scale(1.2);
 			}
+		}
+	}
+
+	&__bottom-right {
+		align-self: start;
+
+		.product__info {
+			display: flex;
+			gap: abs.toRem(5px);
+			position: relative;
+			margin-bottom: abs.toRem(30px);
+
+			&::after {
+				content: "exclusive";
+				font-family: abs.$ff-roboto-condensed;
+				font-size: abs.toRem(14px);
+				background-color: abs.$cl-green;
+				padding: abs.toRem(8px) abs.toRem(17px);
+				border-radius: abs.toRem(11px);
+				position: absolute;
+				top: -70%;
+				right: 0;
+			}
+		}
+
+		.product__price {
+			color: abs.$cl-green;
+			font-size: abs.toRem(42px);
+			font-family: abs.$ff-monument-ex-reg;
+		}
+
+		.product__name-container {
+			font-size: abs.toRem(21px);
+			text-transform: uppercase;
+		}
+
+		.product__brand-name {
+			letter-spacing: abs.toRem(1.5px);
+		}
+
+		.product__name {
+			font-family: abs.$ff-monument-ex-reg;
+			letter-spacing: abs.toRem(5px);
+		}
+
+		.product__buttons {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.product__button {
+			cursor: pointer;
+			border: none;
+			font-family: inherit;
+			font-size: abs.toRem(15px);
+			text-transform: uppercase;
+			border-radius: abs.toRem(6px);
+		}
+
+		.product__button-cart {
+			padding: abs.toRem(17px) abs.toRem(35px);
+			background-color: abs.$cl-white;
+		}
+
+		.product__button-buy {
+			padding: abs.toRem(17px) abs.toRem(52px);
+			background-color: transparent;
+			border: 1px solid abs.$cl-white;
+			color: inherit;
 		}
 	}
 }

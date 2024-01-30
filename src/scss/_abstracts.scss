@@ -1,8 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 @font-face {
-	font-family: "Monument Extended";
+	font-family: "Monument Extended Bold";
 	src: url("../../font/MonumentExtended-FreeForPersonalUse/MonumentExtended-Ultrabold.otf")
+		format("opentype");
+}
+
+@font-face {
+	font-family: "Monument Extended Regular";
+	src: url("../../font/MonumentExtended-FreeForPersonalUse/MonumentExtended-Regular.otf")
 		format("opentype");
 }
 
@@ -13,7 +19,9 @@ $cl-green: #30a357;
 
 // FONT-FAMIY
 $ff-roboto: "Roboto", sans-serif;
-$ff-monument-ex: "Monument Extended", sans-serif;
+$ff-roboto-condensed: "Roboto Condensed", sans-serif;
+$ff-monument-ex: "Monument Extended Bold", sans-serif;
+$ff-monument-ex-reg: "Monument Extended Regular", sans-serif;
 
 // FONT-WEIGHT
 $fw-xtiny: 300;
